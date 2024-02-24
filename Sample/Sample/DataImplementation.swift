@@ -23,7 +23,7 @@ enum SuggestionItemImpl: SuggestionItem {
 }
 
 struct SuggestionSectionDataImpl: SuggestionSectionData {
-    let items: [SuggestionItem]
+    let items: [SuggestionItemImpl]
 }
 
 
@@ -37,11 +37,9 @@ let mockDataImpl1: SuggestionSectionDataImpl  = .init(
 
 class SuggestionsProviderImpl: SuggestionsProvider {
 
-    var updateDataAction: ([SuggestionSectionData]) -> Void = { _ in }
-    
-    func makeView(for data: SuggestionItem) -> UIView {
-        guard let data = data as? SuggestionItemImpl else { return .init() }
+    var updateDataAction: ([SuggestionSectionDataImpl]) -> Void = { _ in }
 
+    func makeView(for data: SuggestionItemImpl) -> UIView {
         switch data {
         case .title:
             return UITextView(frame: .zero)
@@ -50,9 +48,7 @@ class SuggestionsProviderImpl: SuggestionsProvider {
         }
     }
     
-    func configure(view: UIView, for data: SuggestionItem) {
-        guard let data = data as? SuggestionItemImpl else { return }
-
+    func configure(view: UIView, for data: SuggestionItemImpl) {
         switch data {
         case .title(let string):
             (view as? UITextView)?.text = string

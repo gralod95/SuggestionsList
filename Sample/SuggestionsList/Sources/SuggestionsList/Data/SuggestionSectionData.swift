@@ -8,6 +8,8 @@
 import Foundation
 
 public protocol SuggestionSectionData {
+    associatedtype Item: SuggestionItem
+    
     /// Items to show in section
-    var items: [SuggestionItem] { get }
+    var items: [Item] { get }
 }

@@ -7,17 +7,17 @@
 
 import UIKit
 
-public final class SuggestionsView: UIView {
+public final class SuggestionsView<Provider: SuggestionsProvider>: UIView, UITableViewDataSource {
     // MARK: - Private properties
 
-    private var data: [SuggestionSectionData] = []
-    private let provider: SuggestionsProvider
+    private var data: [Provider.SectionData] = []
+    private let provider: Provider
 
     private let tableView: UITableView = .init(frame: .zero, style: .plain)
 
     // MARK: - Init
 
-    public init(provider: SuggestionsProvider) {
+    public init(provider: Provider) {
         self.provider = provider
 
         super.init(frame: .zero)
@@ -54,15 +54,13 @@ public final class SuggestionsView: UIView {
 
         tableView.dataSource = self
     }
-}
 
-// MARK: - UITableViewDataSource implementation
+    // MARK: - UITableViewDataSource implementation
 
-extension SuggestionsView: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         data.count
     }
-    
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard data.count > section else { return .zero }
 
