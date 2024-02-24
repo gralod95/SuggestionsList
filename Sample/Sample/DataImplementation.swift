@@ -23,18 +23,15 @@ enum SuggestionItemImpl: SuggestionItem {
 }
 
 struct SuggestionSectionDataImpl: SuggestionSectionData {
-    let itemsIds: [String]
     let items: [SuggestionItem]
 }
 
 
-let mockDataImpl: SuggestionSectionDataImpl = .init(
-    itemsIds: ["title", "image"],
+let mockDataImpl: SuggestionSectionDataImpl  = .init(
     items: [SuggestionItemImpl.title("some \nmm"), SuggestionItemImpl.image(.init(systemName: "star")!)]
 )
 
-let mockDataImpl1: SuggestionSectionDataImpl = .init(
-    itemsIds: ["title", "image"],
+let mockDataImpl1: SuggestionSectionDataImpl  = .init(
     items: [SuggestionItemImpl.title("some \nmm"), SuggestionItemImpl.title("some1"), SuggestionItemImpl.image(.init(systemName: "star")!)]
 )
 

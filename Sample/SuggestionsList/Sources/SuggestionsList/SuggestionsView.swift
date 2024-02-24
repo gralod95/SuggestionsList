@@ -28,9 +28,11 @@ public final class SuggestionsView: UIView {
         provider.updateDataAction = { [weak self] in
             self?.data = $0
             self?.tableView.reloadData()
-            $0.flatMap(\.itemsIds).forEach {
-                self?.tableView.register(SuggestionTableViewCell.self, forCellReuseIdentifier: $0)
-            }
+            $0.flatMap(\.items)
+                .reduce(into: Set<String>()) { $0.insert($1.id) }
+                .forEach {
+                    self?.tableView.register(SuggestionTableViewCell.self, forCellReuseIdentifier: $0)
+                }
         }
     }
 
