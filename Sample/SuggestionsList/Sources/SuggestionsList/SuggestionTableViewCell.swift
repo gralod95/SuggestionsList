@@ -8,9 +8,13 @@
 import UIKit
 
 final class SuggestionTableViewCell: UITableViewCell {
+    // MARK: - Public properties
+
     var isConfigured: Bool { content != .none }
 
     private(set) var content: UIView?
+
+    // MARK: - Public methods
 
     func set(content: UIView) {
         guard !isConfigured else {

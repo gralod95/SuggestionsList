@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SuggestionsProvider: AnyObject {
+public protocol SuggestionsProvider: AnyObject {
     var updateDataAction: ([SuggestionSectionData]) -> Void { get set }
 
     /// Method for making new view for data type

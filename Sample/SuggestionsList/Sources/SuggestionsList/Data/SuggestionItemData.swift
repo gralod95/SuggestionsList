@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SuggestionItem {
+public protocol SuggestionItem {
     /// Unique id for view (it is used in UITableView for register reusable cell)
     var id: String { get }
 }

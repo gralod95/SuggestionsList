@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,14 +12,8 @@
 		9806E8272B8515190052DC30 /* SuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E8262B8515190052DC30 /* SuggestionsViewController.swift */; };
 		9806E82C2B85151A0052DC30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9806E82B2B85151A0052DC30 /* Assets.xcassets */; };
 		9806E82F2B85151A0052DC30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9806E82D2B85151A0052DC30 /* LaunchScreen.storyboard */; };
-		9806E8382B88AD180052DC30 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E8372B88AD180052DC30 /* BaseViewController.swift */; };
-		9806E83B2B88AE720052DC30 /* SuggestionItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E83A2B88AE720052DC30 /* SuggestionItemData.swift */; };
-		9806E83D2B88AEBB0052DC30 /* SuggestionSectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E83C2B88AEBB0052DC30 /* SuggestionSectionData.swift */; };
-		9806E8402B88B0CA0052DC30 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E83F2B88B0CA0052DC30 /* Array+.swift */; };
 		9806E8442B88B7680052DC30 /* DataImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E8432B88B7680052DC30 /* DataImplementation.swift */; };
-		9806E8472B88B8FA0052DC30 /* SuggestionsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E8462B88B8FA0052DC30 /* SuggestionsProvider.swift */; };
-		9806E8492B88B9A00052DC30 /* SuggestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E8482B88B9A00052DC30 /* SuggestionTableViewCell.swift */; };
-		9806E84C2B88D7B50052DC30 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806E84B2B88D7B50052DC30 /* SuggestionsView.swift */; };
+		98EFD5652B8A04D900FEFB13 /* SuggestionsList in Frameworks */ = {isa = PBXBuildFile; productRef = 98EFD5642B8A04D900FEFB13 /* SuggestionsList */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,14 +24,7 @@
 		9806E82B2B85151A0052DC30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9806E82E2B85151A0052DC30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9806E8302B85151A0052DC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9806E8372B88AD180052DC30 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		9806E83A2B88AE720052DC30 /* SuggestionItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionItemData.swift; sourceTree = "<group>"; };
-		9806E83C2B88AEBB0052DC30 /* SuggestionSectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionSectionData.swift; sourceTree = "<group>"; };
-		9806E83F2B88B0CA0052DC30 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		9806E8432B88B7680052DC30 /* DataImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataImplementation.swift; sourceTree = "<group>"; };
-		9806E8462B88B8FA0052DC30 /* SuggestionsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsProvider.swift; sourceTree = "<group>"; };
-		9806E8482B88B9A00052DC30 /* SuggestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionTableViewCell.swift; sourceTree = "<group>"; };
-		9806E84B2B88D7B50052DC30 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98EFD5652B8A04D900FEFB13 /* SuggestionsList in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +44,7 @@
 			children = (
 				9806E8212B8515180052DC30 /* Sample */,
 				9806E8202B8515180052DC30 /* Products */,
+				98EFD5632B8A04D900FEFB13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,24 +59,14 @@
 		9806E8212B8515180052DC30 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
-				9806E84A2B88D7910052DC30 /* SuggestionsView */,
 				9806E8422B88B1FE0052DC30 /* Base */,
 				9806E8262B8515190052DC30 /* SuggestionsViewController.swift */,
-				9806E8482B88B9A00052DC30 /* SuggestionTableViewCell.swift */,
 				9806E8432B88B7680052DC30 /* DataImplementation.swift */,
 				9806E82B2B85151A0052DC30 /* Assets.xcassets */,
 				9806E82D2B85151A0052DC30 /* LaunchScreen.storyboard */,
 				9806E8302B85151A0052DC30 /* Info.plist */,
 			);
 			path = Sample;
-			sourceTree = "<group>";
-		};
-		9806E8362B88AD060052DC30 /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
-				9806E8372B88AD180052DC30 /* BaseViewController.swift */,
-			);
-			path = Implementations;
 			sourceTree = "<group>";
 		};
 		9806E8392B88AD2E0052DC30 /* AppAndSceneDelegate */ = {
@@ -99,49 +78,19 @@
 			path = AppAndSceneDelegate;
 			sourceTree = "<group>";
 		};
-		9806E83E2B88B0BD0052DC30 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9806E83F2B88B0CA0052DC30 /* Array+.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9806E8412B88B1F30052DC30 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				9806E83A2B88AE720052DC30 /* SuggestionItemData.swift */,
-				9806E83C2B88AEBB0052DC30 /* SuggestionSectionData.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		9806E8422B88B1FE0052DC30 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				9806E83E2B88B0BD0052DC30 /* Extensions */,
 				9806E8392B88AD2E0052DC30 /* AppAndSceneDelegate */,
-				9806E8362B88AD060052DC30 /* Implementations */,
 			);
 			path = Base;
 			sourceTree = "<group>";
 		};
-		9806E8452B88B8E70052DC30 /* Provider */ = {
+		98EFD5632B8A04D900FEFB13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9806E8462B88B8FA0052DC30 /* SuggestionsProvider.swift */,
 			);
-			path = Provider;
-			sourceTree = "<group>";
-		};
-		9806E84A2B88D7910052DC30 /* SuggestionsView */ = {
-			isa = PBXGroup;
-			children = (
-				9806E8452B88B8E70052DC30 /* Provider */,
-				9806E8412B88B1F30052DC30 /* Data */,
-				9806E84B2B88D7B50052DC30 /* SuggestionsView.swift */,
-			);
-			path = SuggestionsView;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +109,9 @@
 			dependencies = (
 			);
 			name = Sample;
+			packageProductDependencies = (
+				98EFD5642B8A04D900FEFB13 /* SuggestionsList */,
+			);
 			productName = Sample;
 			productReference = 9806E81F2B8515180052DC30 /* Sample.app */;
 			productType = "com.apple.product-type.application";
@@ -188,6 +140,9 @@
 				Base,
 			);
 			mainGroup = 9806E8162B8515180052DC30;
+			packageReferences = (
+				98EFD5602B8A044F00FEFB13 /* XCLocalSwiftPackageReference "SuggestionsList" */,
+			);
 			productRefGroup = 9806E8202B8515180052DC30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,16 +170,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9806E8272B8515190052DC30 /* SuggestionsViewController.swift in Sources */,
-				9806E8382B88AD180052DC30 /* BaseViewController.swift in Sources */,
 				9806E8232B8515190052DC30 /* AppDelegate.swift in Sources */,
-				9806E8472B88B8FA0052DC30 /* SuggestionsProvider.swift in Sources */,
 				9806E8442B88B7680052DC30 /* DataImplementation.swift in Sources */,
-				9806E83B2B88AE720052DC30 /* SuggestionItemData.swift in Sources */,
-				9806E84C2B88D7B50052DC30 /* SuggestionsView.swift in Sources */,
 				9806E8252B8515190052DC30 /* SceneDelegate.swift in Sources */,
-				9806E8492B88B9A00052DC30 /* SuggestionTableViewCell.swift in Sources */,
-				9806E83D2B88AEBB0052DC30 /* SuggestionSectionData.swift in Sources */,
-				9806E8402B88B0CA0052DC30 /* Array+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +383,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		98EFD5602B8A044F00FEFB13 /* XCLocalSwiftPackageReference "SuggestionsList" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = SuggestionsList;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		98EFD5642B8A04D900FEFB13 /* SuggestionsList */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 98EFD5602B8A044F00FEFB13 /* XCLocalSwiftPackageReference "SuggestionsList" */;
+			productName = SuggestionsList;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9806E8172B8515180052DC30 /* Project object */;
 }

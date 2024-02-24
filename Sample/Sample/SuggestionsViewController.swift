@@ -1,4 +1,5 @@
 import UIKit
+import SuggestionsList
 
 final class SuggestionsViewController: UIViewController {
     private lazy var rootView: SuggestionsView = .init(provider: SuggestionsProviderImpl())

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SuggestionsView: UIView {
+public final class SuggestionsView: UIView {
     // MARK: - Private properties
 
     private var data: [SuggestionSectionData] = []
@@ -17,7 +17,7 @@ final class SuggestionsView: UIView {
 
     // MARK: - Init
 
-    init(provider: SuggestionsProvider) {
+    public init(provider: SuggestionsProvider) {
         self.provider = provider
 
         super.init(frame: .zero)
@@ -57,16 +57,17 @@ final class SuggestionsView: UIView {
 // MARK: - UITableViewDataSource implementation
 
 extension SuggestionsView: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    public func numberOfSections(in tableView: UITableView) -> Int {
         data.count
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard data.count > section else { return .zero }
 
         return data[section].items.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = data[safe: indexPath.section],
               let item = section.items[safe: indexPath.item],
               let cell = tableView.dequeueReusableCell(withIdentifier: item.id, for: indexPath) as? SuggestionTableViewCell

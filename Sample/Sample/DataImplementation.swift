@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SuggestionsList
 
 enum SuggestionItemImpl: SuggestionItem {
     case title(String)
@@ -27,12 +28,12 @@ struct SuggestionSectionDataImpl: SuggestionSectionData {
 }
 
 
-let mockDataImpl: SuggestionSectionDataImpl  = .init(
+let mockDataImpl: SuggestionSectionDataImpl = .init(
     itemsIds: ["title", "image"],
     items: [SuggestionItemImpl.title("some \nmm"), SuggestionItemImpl.image(.init(systemName: "star")!)]
 )
 
-let mockDataImpl1: SuggestionSectionDataImpl  = .init(
+let mockDataImpl1: SuggestionSectionDataImpl = .init(
     itemsIds: ["title", "image"],
     items: [SuggestionItemImpl.title("some \nmm"), SuggestionItemImpl.title("some1"), SuggestionItemImpl.image(.init(systemName: "star")!)]
 )

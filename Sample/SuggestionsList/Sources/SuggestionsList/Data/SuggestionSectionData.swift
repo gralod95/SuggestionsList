@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SuggestionSectionData {
+public protocol SuggestionSectionData {
     /// Ids for register any unique view in list for reusing
     var itemsIds: [String] { get }
     /// Items to show in section
