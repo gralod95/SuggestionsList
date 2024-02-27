@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  SuggestionView.swift
+//  SuggestionsList
 //
 //  Created by Odinokov G. A. on 27.02.2024.
 //
