@@ -8,18 +8,8 @@
 import UIKit
 import SuggestionsList
 
-enum SuggestionItemImpl: SuggestionItem {
-    case title(String)
-    case image(UIImage)
-
-    var id: String {
-        switch self {
-        case .title:
-            return "title"
-        case .image:
-            return "image"
-        }
-    }
+public struct SuggestionItemImpl: SuggestionItem {
+    let text: String
 }
 
 struct SuggestionSectionDataImpl: SuggestionSectionData {
@@ -28,34 +18,16 @@ struct SuggestionSectionDataImpl: SuggestionSectionData {
 
 
 let mockDataImpl: SuggestionSectionDataImpl  = .init(
-    items: [SuggestionItemImpl.title("some \nmm"), SuggestionItemImpl.image(.init(systemName: "star")!)]
+    items: [.init(text: "first item"), .init(text: "second \nitem")]
 )
 
 let mockDataImpl1: SuggestionSectionDataImpl  = .init(
-    items: [SuggestionItemImpl.title("some \nmm"), SuggestionItemImpl.title("some1"), SuggestionItemImpl.image(.init(systemName: "star")!)]
+    items: [.init(text: "first item"), .init(text: "second \nitem"), .init(text: "third item")]
 )
 
 class SuggestionsProviderImpl: SuggestionsProvider {
 
     var updateDataAction: ([SuggestionSectionDataImpl]) -> Void = { _ in }
-
-    func makeView(for data: SuggestionItemImpl) -> UIView {
-        switch data {
-        case .title:
-            return UITextView(frame: .zero)
-        case .image:
-            return UIImageView(frame: .zero)
-        }
-    }
-    
-    func configure(view: UIView, for data: SuggestionItemImpl) {
-        switch data {
-        case .title(let string):
-            (view as? UITextView)?.text = string
-        case .image(let image):
-            (view as? UIImageView)?.image = image
-        }
-    }
 
     init() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -65,5 +37,11 @@ class SuggestionsProviderImpl: SuggestionsProvider {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.updateDataAction([mockDataImpl1])
         }
+    }
+}
+
+extension UITextView: SuggestionView {
+    public func configure(with data: SuggestionItemImpl) {
+        text = data.text
     }
 }

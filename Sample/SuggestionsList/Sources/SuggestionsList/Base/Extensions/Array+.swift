@@ -1,6 +1,6 @@
 //
 //  Array+.swift
-//  Sample
+//  SuggestionsList
 //
 //  Created by Odinokov G. A. on 23.02.2024.
 //

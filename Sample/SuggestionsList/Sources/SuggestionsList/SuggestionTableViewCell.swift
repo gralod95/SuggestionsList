@@ -1,29 +1,40 @@
 //
 //  SuggestionTableViewCell.swift
-//  Sample
+//  SuggestionsList
 //
 //  Created by Odinokov G. A. on 23.02.2024.
 //
 
 import UIKit
 
-final class SuggestionTableViewCell: UITableViewCell {
+final class SuggestionTableViewCell<ContentView: SuggestionView>: UITableViewCell {
     // MARK: - Public properties
 
-    var isConfigured: Bool { content != .none }
+    private(set) var content: ContentView = .init(frame: .zero)
 
-    private(set) var content: UIView?
+    // MARK: - Initialization
 
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        configureSubview()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+
+        configureSubview()
+    }
+    
     // MARK: - Public methods
 
-    func set(content: UIView) {
-        guard !isConfigured else {
-            assertionFailure("content view has been set already!")
-            return
-        }
+    func configure(with data: ContentView.ItemData) {
+        content.configure(with: data)
+    }
 
-        self.content = content
+    // MARK: - Private methods
 
+    private func configureSubview() {
         content.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(content)
         NSLayoutConstraint.activate([

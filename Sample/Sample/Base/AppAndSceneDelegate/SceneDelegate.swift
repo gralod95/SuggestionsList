@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SuggestionsList
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
 
         window = .init(windowScene: scene)
-        window?.rootViewController = SuggestionsViewController()
+        window?.rootViewController = SuggestionsViewController<SuggestionsProviderImpl, UITextView>(provider: .init())
         window?.makeKeyAndVisible()
     }
 
@@ -50,7 +51,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-
