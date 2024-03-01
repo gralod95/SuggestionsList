@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
 
         window = .init(windowScene: scene)
-        window?.rootViewController = SuggestionsViewController<SuggestionsProviderImpl, UITextView>(provider: .init())
+        window?.rootViewController = SuggestionsViewController<SuggestionsProviderImpl>(provider: .init())
         window?.makeKeyAndVisible()
     }
 

@@ -7,20 +7,11 @@
 
 import UIKit
 
-// MARK: - Nested types
-
-private enum SuggestionsViewConstants {
-    static let cellId: String = "reusableCell"
-}
-
-public final class SuggestionsViewController<
-    Provider: SuggestionsProvider,
-    ContentView: SuggestionView
->: UIViewController, UITableViewDataSource where Provider.SectionData.Item == ContentView.ItemData {
+public final class SuggestionsViewController<Provider: SuggestionsProvider>: UIViewController, UITableViewDataSource {
     // MARK: - Private methods
 
     private let provider: Provider
-    private var data: [Provider.SectionData] = []
+    private var data: [any SuggestionSectionData] = []
 
     private lazy var rootView: UITableView = .init(frame: .zero, style: .plain)
 
@@ -36,21 +27,20 @@ public final class SuggestionsViewController<
             self?.rootView.reloadData()
         }
     }
-    
+
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Override methods
 
     public override func loadView() {
         rootView.layoutMargins = .init(top: 0, left: 16, bottom: 0, right: 16)
         rootView.translatesAutoresizingMaskIntoConstraints = false
 
-        rootView.register(
-            SuggestionTableViewCell<ContentView>.self,
-            forCellReuseIdentifier: SuggestionsViewConstants.cellId
-        )
+        provider.contentViewTypesForRegistration.forEach { type in
+            registerCellType(type: type)
+        }
         rootView.dataSource = self
 
         view = rootView
@@ -69,17 +59,33 @@ public final class SuggestionsViewController<
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tableViewCell = tableView.dequeueReusableCell(
-            withIdentifier: SuggestionsViewConstants.cellId,
+        guard let section = data[safe: indexPath.section]
+        else { return .init() }
+
+        return section.getCell(rootView: rootView, indexPath: indexPath)
+    }
+
+    private func registerCellType<ContentType: SuggestionView>(type: ContentType.Type) {
+        rootView.register(
+            SuggestionTableViewCell<ContentType>.self,
+            forCellReuseIdentifier: String(describing: SuggestionTableViewCell<ContentType>.self)
+        )
+    }
+}
+
+private extension SuggestionSectionData {
+    func getCell(
+        rootView: UITableView,
+        indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = rootView.dequeueReusableCell(
+            withIdentifier: String(describing: SuggestionTableViewCell<ContentView>.self),
             for: indexPath
         )
 
-        guard let section = data[safe: indexPath.section],
-              let item = section.items[safe: indexPath.item],
-              let cell = tableViewCell as? SuggestionTableViewCell<ContentView>
-        else { return tableViewCell }
-
-        cell.configure(with: item)
+        if let item = items[safe: indexPath.item] {
+            (cell as? SuggestionTableViewCell<ContentView>)?.configure(with: item)
+        }
 
         return cell
     }

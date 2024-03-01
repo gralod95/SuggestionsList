@@ -9,7 +9,8 @@ import Foundation
 
 public protocol SuggestionSectionData {
     associatedtype Item: SuggestionItem
-    
+    associatedtype ContentView: SuggestionView where ContentView.ItemData == Item
+
     /// Items to show in section
     var items: [Item] { get }
 }

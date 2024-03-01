@@ -8,7 +8,6 @@
 import UIKit
 
 public protocol SuggestionsProvider: AnyObject {
-    associatedtype SectionData: SuggestionSectionData
-
-    var updateDataAction: ([SectionData]) -> Void { get set }
+    var contentViewTypesForRegistration: [any SuggestionView.Type] { get }
+    var updateDataAction: ([any SuggestionSectionData]) -> Void { get set }
 }

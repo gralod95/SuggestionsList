@@ -8,7 +8,6 @@
 import UIKit
 
 public protocol SuggestionView: UIView {
-
     associatedtype ItemData: SuggestionItem
 
     /// Method for configure view about to show
